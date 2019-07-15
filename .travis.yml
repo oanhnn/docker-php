@@ -1,0 +1,14 @@
+services:
+  - docker
+
+env:
+  global:
+
+before_script:
+  - docker info
+  - export DOCKER_REPO="oanhnn/php"
+  - export DOCKER_TAG=${TRAVIS_BRANCH}
+  - export IMAGE_NAME=${DOCKER_REPO}:${DOCKER_TAG}
+
+script:
+  - ./hooks/build

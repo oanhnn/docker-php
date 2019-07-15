@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+# Settings PHP if php.ini isn't existed
+if [[ ! -f $PHP_INI_DIR/php.ini ]]; then
+    touch $PHP_INI_DIR/php.ini
+    echo "display_errors=stderr"                          >> $PHP_INI_DIR/php.ini
+    echo "expose_php=0"                                   >> $PHP_INI_DIR/php.ini
+    echo "memory_limit=${PHP_MEMORY_LIMIT:-128M}"         >> $PHP_INI_DIR/php.ini
+    echo "max_execution_time=${PHP_MAX_EXEC_TIME:-30}"    >> $PHP_INI_DIR/php.ini
+    echo "max_file_uploads=${PHP_MAX_FILE_UPLOADS:-20}"   >> $PHP_INI_DIR/php.ini
+    echo "post_max_size=${PHP_POST_MAX_SIZE:-8M}"         >> $PHP_INI_DIR/php.ini
+    echo "upload_max_filesize=${PHP_UPLOAD_MAX_SIZE:-2M}" >> $PHP_INI_DIR/php.ini
+    echo "date.timezone=${PHP_TIMEZONE:-UTC}"             >> $PHP_INI_DIR/php.ini
+    echo "cgi.fix_pathinfo=0"                             >> $PHP_INI_DIR/php.ini
+fi
+
+# Enable XDebug
+if [[ "${PHP_ENABLE_XDEBUG:-0}" == "1" ]]; then
+    docker-php-ext-enable xdebug
+fi
+
+# First arg is `-f` or `--some-option`
+if [[ "${1#-}" != "$1" ]]; then
+	set -- php-fpm "$@"
+fi
+
+exec "$@"
