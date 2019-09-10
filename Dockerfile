@@ -6,7 +6,7 @@ ARG URL
 ARG VERSION
 
 # Base Image
-FROM php:7.4-fpm-alpine
+FROM php:7.4-rc-fpm-alpine
 
 # Labels
 LABEL org.label-schema.schema-version="1.0" \
@@ -30,9 +30,8 @@ ENV PHP_ENABLE_XDEBUG=0 \
     PHP_TIMEZONE=UTC
 
 RUN set -eux; \
-# Install some packages
-    apk add --update --no-cache curl; \
-# Install some php extensions
+    \
+    # Install some php extensions
     apk add --update --no-cache --virtual .build-deps \
         freetype-dev \
         gmp-dev \
@@ -64,7 +63,8 @@ RUN set -eux; \
         sockets \
         zip \
     ; \
-# Install some extensions
+    \
+    # Install some extensions
     pecl update-channels; \
     pecl install \
         imagick \
@@ -73,7 +73,8 @@ RUN set -eux; \
     ; \
     docker-php-ext-enable imagick redis; \
     rm -rf /tmp/pear ~/.pearrc; \
-# Install runtime libraries
+    \
+    # Install runtime libraries
     runDeps="$( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
             | tr ',' '\n' \
@@ -82,7 +83,8 @@ RUN set -eux; \
     )"; \
     apk add --update --no-cache --virtual .run-deps $runDeps; \
     apk del .build-deps; \
-# smoke test
+    \
+    # smoke test
     php --version
 
 # Modify docker entrypoint

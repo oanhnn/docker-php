@@ -5,11 +5,32 @@
 <table>
   <tr>
     <th>PHP Version</th>
+    <th>Apache</th>
+    <th>CLI</th>
+    <th>FPM</th>
+    <th>ZTS</th>
     <th>CLI - Alpine</th>
     <th>FPM - Alpine</th>
+    <th>ZTS - Alpine</th>
   </tr>
   <tr>
     <td>7.0</td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.0-apache" title="7.0-apache"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-apache.svg" alt="7.0-apache"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-apache" alt="7.0-apache"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.0-cli" title="7.0-cli"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-cli.svg" alt="7.0-cli"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-cli" alt="7.0-cli"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.0-fpm" title="7.0-fpm"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-fpm.svg" alt="7.0-fpm"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-fpm" alt="7.0-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.0-zts" title="7.0-zts"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-zts.svg" alt="7.0-zts"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-zts" alt="7.0-zts"/></a>
+    </td>
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.0-cli-alpine" title="7.0-cli-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-cli-alpine.svg" alt="7.0-cli-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-cli-alpine" alt="7.0-cli-alpine"/></a>
@@ -18,9 +39,29 @@
       <a href="https://microbadger.com/images/oanhnn/php:7.0-fpm-alpine" title="7.0-fpm-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-fpm-alpine.svg" alt="7.0-fpm-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-fpm-alpine" alt="7.0-fpm-alpine"/></a>
     </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.0-zts-alpine" title="7.0-zts-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.0-zts-alpine.svg" alt="7.0-zts-alpine"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.0-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.0-zts-alpine" alt="7.0-zts-alpine"/></a>
+    </td>
   </tr>
   <tr>
     <td>7.1</td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.1-apache" title="7.1-apache"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-apache.svg" alt="7.1-apache"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-apache" alt="7.1-apache"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.1-cli" title="7.1-cli"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-cli.svg" alt="7.1-cli"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-cli" alt="7.1-cli"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.1-fpm" title="7.1-fpm"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-fpm.svg" alt="7.1-fpm"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-fpm" alt="7.1-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.1-zts" title="7.1-zts"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-zts.svg" alt="7.1-zts"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-zts" alt="7.1-zts"/></a>
+    </td>
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.1-cli-alpine" title="7.1-cli-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-cli-alpine.svg" alt="7.1-cli-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-cli-alpine" alt="7.1-cli-alpine"/></a>
@@ -29,9 +70,29 @@
       <a href="https://microbadger.com/images/oanhnn/php:7.1-fpm-alpine" title="7.1-fpm-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-fpm-alpine.svg" alt="7.1-fpm-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-fpm-alpine" alt="7.1-fpm-alpine"/></a>
     </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.1-zts-alpine" title="7.1-zts-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.1-zts-alpine.svg" alt="7.1-zts-alpine"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.1-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.1-zts-alpine" alt="7.1-zts-alpine"/></a>
+    </td>
   </tr>
   <tr>
     <td>7.2</td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.2-apache" title="7.2-apache"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-apache.svg" alt="7.2-apache"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-apache" alt="7.2-apache"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.2-cli" title="7.2-cli"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-cli.svg" alt="7.2-cli"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-cli" alt="7.2-cli"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.2-fpm" title="7.2-fpm"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-fpm.svg" alt="7.2-fpm"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-fpm" alt="7.2-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.2-zts" title="7.2-zts"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-zts.svg" alt="7.2-zts"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-zts" alt="7.2-zts"/></a>
+    </td>
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.2-cli-alpine" title="7.2-cli-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-cli-alpine.svg" alt="7.2-cli-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-cli-alpine" alt="7.2-cli-alpine"/></a>
@@ -40,9 +101,29 @@
       <a href="https://microbadger.com/images/oanhnn/php:7.2-fpm-alpine" title="7.2-fpm-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-fpm-alpine.svg" alt="7.2-fpm-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-fpm-alpine" alt="7.2-fpm-alpine"/></a>
     </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.2-zts-alpine" title="7.2-zts-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.2-zts-alpine.svg" alt="7.2-zts-alpine"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.2-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.2-zts-alpine" alt="7.2-zts-alpine"/></a>
+    </td>
   </tr>
   <tr>
     <td>7.3</td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.3-apache" title="7.3-apache"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-apache.svg" alt="7.3-apache"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-apache" alt="7.3-apache"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.3-cli" title="7.3-cli"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-cli.svg" alt="7.3-cli"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-cli" alt="7.3-cli"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.3-fpm" title="7.3-fpm"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-fpm.svg" alt="7.3-fpm"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-fpm" alt="7.3-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.3-zts" title="7.3-zts"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-zts.svg" alt="7.3-zts"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-zts" alt="7.3-zts"/></a>
+    </td>
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.3-cli-alpine" title="7.3-cli-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-cli-alpine.svg" alt="7.3-cli-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-cli-alpine" alt="7.3-cli-alpine"/></a>
@@ -51,9 +132,29 @@
       <a href="https://microbadger.com/images/oanhnn/php:7.3-fpm-alpine" title="7.3-fpm-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-fpm-alpine.svg" alt="7.3-fpm-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-fpm-alpine" alt="7.3-fpm-alpine"/></a>
     </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.3-zts-alpine" title="7.3-zts-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.3-zts-alpine.svg" alt="7.3-zts-alpine"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.3-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.3-zts-alpine" alt="7.3-zts-alpine"/></a>
+    </td>
   </tr>
   <tr>
     <td>7.4</td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.4-apache" title="7.4-apache"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-apache.svg" alt="7.4-apache"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-apache" alt="7.4-apache"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.4-cli" title="7.4-cli"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-cli.svg" alt="7.4-cli"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-cli" alt="7.4-cli"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.4-fpm" title="7.4-fpm"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-fpm.svg" alt="7.4-fpm"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-fpm" alt="7.4-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.4-zts" title="7.4-zts"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-zts.svg" alt="7.4-zts"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-zts" alt="7.4-zts"/></a>
+    </td>
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.4-cli-alpine" title="7.4-cli-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-cli-alpine.svg" alt="7.4-cli-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-cli-alpine" alt="7.4-cli-alpine"/></a>
@@ -61,6 +162,10 @@
     <td>
       <a href="https://microbadger.com/images/oanhnn/php:7.4-fpm-alpine" title="7.4-fpm-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-fpm-alpine.svg" alt="7.4-fpm-alpine"/></a>
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-fpm-alpine" alt="7.4-fpm-alpine"/></a>
+    </td>
+    <td>
+      <a href="https://microbadger.com/images/oanhnn/php:7.4-zts-alpine" title="7.4-zts-alpine"><img src="https://images.microbadger.com/badges/version/oanhnn/php:7.4-zts-alpine.svg" alt="7.4-zts-alpine"/></a>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-zts-alpine" alt="7.4-zts-alpine"/></a>
     </td>
   </tr>
 </table>
@@ -100,5 +205,5 @@ If you would like to help take a look at the [list of issues](https://github.com
 ## License
 
 This project is released under the MIT License.   
-Copyright © 2018 [Oanh Nguyen](https://github.com/oanhnn)   
+Copyright © 2018-2019 [Oanh Nguyen](https://github.com/oanhnn)   
 Please see [License File](./LICENSE) for more information.
