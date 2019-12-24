@@ -69,7 +69,7 @@ RUN set -eux; \
     pecl install \
         imagick \
         redis \
-        # xdebug \
+        xdebug \
     ; \
     docker-php-ext-enable imagick redis; \
     rm -rf /tmp/pear ~/.pearrc; \
