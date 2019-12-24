@@ -1,9 +1,6 @@
 services:
   - docker
 
-env:
-  global:
-
 before_script:
   - docker info
   - export DOCKER_REPO="oanhnn/php"

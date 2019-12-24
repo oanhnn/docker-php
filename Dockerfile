@@ -6,7 +6,7 @@ ARG URL
 ARG VERSION
 
 # Base Image
-FROM php:7.4-rc-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 # Labels
 LABEL org.label-schema.schema-version="1.0" \
