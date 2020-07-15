@@ -3,7 +3,8 @@ name: CI-CD
 on:
   push:
     branches:
-      - "*"
+      - master
+      - develop
 
 env:
   DOCKER_IMAGE: oanhnn/php
@@ -11,6 +12,23 @@ env:
 jobs:
   build:
     name: Build, test and publish image for tag ${{ matrix.php }}-${{ matrix.variant }}
+    strategy:
+      matrix:
+        php:
+          # - 7.0
+          # - 7.1
+          # - 7.2
+          # - 7.3
+          - 7.4
+          # - 8.0-rc
+        variant:
+          # - apache
+          # - cli
+          # - fpm
+          # - zts
+          - cli-alpine
+          - fpm-alpine
+          - zts-alpine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,21 +37,20 @@ jobs:
       - name: Get the version
         id: vars
         run: |
-          # Get version from branch name
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          echo $VERSION
-          VERSION=7.4-fpm-alpine
+          if [[ "${{ matrix.variant }}" == *alpine ]]; then BASE_OS="alpine"; else BASE_OS="buster"; if
           # Set step output
-          echo "::set-output name=version::$VERSION"
+          echo "::set-output name=base_os::$(echo $BASE_OS)"
+          echo "::set-output name=version::$(echo ${{ matrix.php }}-${{ matrix.variant }})"
           echo "::set-output name=created::$(date --utc --iso-8601=seconds | sed 's/+00.00/Z/g')"
 
       - name: Build image
         run: |
+          cd ${{ matrix.php }}/${{ steps.vars.outputs.base_os }}
           docker build --pull --cache-from $DOCKER_IMAGE:${{ steps.vars.outputs.version }} \
                        --label "org.opencontainers.image.title='The PHP Docker Image'" \
                        --label "org.opencontainers.image.authors=oanhnn" \
                        --label "org.opencontainers.image.licenses=MIT" \
-                       --label "org.opencontainers.image.version=${{ steps.vars.outputs.version }}" \
+                       --label "org.opencontainers.image.version=${{ matrix.php }}" \
                        --label "org.opencontainers.image.created=${{ steps.vars.outputs.created }}" \
                        --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
                        --label "org.opencontainers.image.revision=${{ github.sha }}" \

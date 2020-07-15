@@ -138,30 +138,40 @@
       <a href="https://travis-ci.org/oanhnn/docker-php" title="7.4-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=7.4-zts-alpine" alt="7.4-zts-alpine"/></a>
     </td>
   </tr>
+  <tr>
+    <td>8.0-rc</td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-apache"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-apache" alt="8.0-rc-apache"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-cli"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-cli" alt="8.0-rc-cli"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-fpm"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-fpm" alt="8.0-rc-fpm"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-zts"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-zts" alt="8.0-rc-zts"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-cli-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-cli-alpine" alt="8.0-rc-cli-alpine"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-fpm-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-fpm-alpine" alt="8.0-rc-fpm-alpine"/></a>
+    </td>
+    <td>
+      <a href="https://travis-ci.org/oanhnn/docker-php" title="8.0-rc-zts-alpine"><img src="https://travis-ci.org/oanhnn/docker-php.svg?branch=8.0-rc-zts-alpine" alt="8.0-rc-zts-alpine"/></a>
+    </td>
+  </tr>
 </table>
 
 ## Features
 
 - [x] Base from PHP official image
 - [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, imagick, xdebug
-- [x] Enable XDebug extension by environment variable
 
 ## Usage
 
 - Use like with official image
-- Set environment variable `PHP_ENABLE_XDEBUG=1` to enable XDebug extension
-
-## Environment variable
-
-| Environment variable   | Default | Note |
-|------------------------|---------|------|
-| `PHP_ENABLE_XDEBUG`    | `0`     | Enable XDebug extension |
-| `PHP_MEMORY_LIMIT`     | `128M`  | Value of `memory_limit` in `php.ini` |
-| `PHP_MAX_EXEC_TIME`    | `30`    | Value of `max_execution_time` in `php.ini` |
-| `PHP_MAX_FILE_UPLOADS` | `20`    | Value of `max_file_uploads` in `php.ini` |
-| `PHP_POST_MAX_SIZE`    | `8M`    | Value of `post_max_size` in `php.ini` |
-| `PHP_UPLOAD_MAX_SIZE`  | `2M`    | Value of `upload_max_filesize` in `php.ini` |
-| `PHP_TIMEZONE`         | `UTC`   | Value of `date.timezone` in `php.ini` |
 
 ## Contributing
 
@@ -175,5 +185,5 @@ If you would like to help take a look at the [list of issues](https://github.com
 ## License
 
 This project is released under the MIT License.   
-Copyright © 2018-2019 [Oanh Nguyen](https://github.com/oanhnn)   
+Copyright © 2018-2020 [Oanh Nguyen](https://github.com/oanhnn)   
 Please see [License File](./LICENSE) for more information.

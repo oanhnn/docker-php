@@ -1,16 +1,6 @@
-ARG VERSION=latest
+ARG VERSION
 
-# Base Image
 FROM php:$VERSION
-
-# Enviroments
-ENV PHP_ENABLE_XDEBUG=0 \
-    PHP_MEMORY_LIMIT=128M \
-    PHP_MAX_EXEC_TIME=30 \
-    PHP_MAX_FILE_UPLOADS=20 \
-    PHP_POST_MAX_SIZE=8M \
-    PHP_UPLOAD_MAX_SIZE=2M \
-    PHP_TIMEZONE=UTC
 
 # Install some extensions and runtime libraries
 RUN set -eux; \
@@ -30,9 +20,8 @@ RUN set -eux; \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
-        --with-freetype-dir=/usr/include/ \
-        --with-png-dir=/usr/include/ \
-        --with-jpeg-dir=/usr/include/ \
+        --with-freetype=/usr/include/ \
+        --with-jpeg=/usr/include/ \
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath \
@@ -66,7 +55,3 @@ RUN set -eux; \
     apk del .build-deps; \
     \
     php --version
-
-# Modify docker entrypoint
-COPY docker-php-entrypoint /usr/local/bin/
-ENTRYPOINT [ "docker-php-entrypoint" ]
