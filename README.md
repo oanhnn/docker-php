@@ -3,7 +3,7 @@
 [![Docker Automated build](https://img.shields.io/docker/automated/oanhnn/php)](https://hub.docker.com/r/oanhnn/php)
 [![Docker Build Status](https://img.shields.io/docker/build/oanhnn/php)](https://hub.docker.com/r/oanhnn/php)
 [![Docker Pulls](https://img.shields.io/docker/pulls/oanhnn/php)](https://hub.docker.com/r/oanhnn/php)
-[![Software License](https://img.shields.io/github/license/oanhnn/laravel-logzio.svg)](LICENSE)
+[![Software License](https://img.shields.io/github/license/oanhnn/docker-php.svg)](LICENSE)
 
 ## Docker image.
 
