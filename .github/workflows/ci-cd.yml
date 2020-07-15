@@ -11,22 +11,6 @@ env:
 jobs:
   build:
     name: Build, test and publish image for tag ${{ matrix.php }}-${{ matrix.variant }}
-    strategy:
-      matrix:
-        php:
-          - 7.0
-          - 7.1
-          - 7.2
-          - 7.3
-          - 7.4
-        variant:
-          # - apache
-          # - cli
-          # - fpm
-          # - zts
-          - cli-alpine
-          - fpm-alpine
-          - zts-alpine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,8 +19,12 @@ jobs:
       - name: Get the version
         id: vars
         run: |
+          # Get version from branch name
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          echo $VERSION
+          VERSION=7.4-fpm-alpine
           # Set step output
-          echo "::set-output name=version::$(echo '${{ matrix.php }}-${{ matrix.variant }}')"
+          echo "::set-output name=version::$VERSION"
           echo "::set-output name=created::$(date --utc --iso-8601=seconds | sed 's/+00.00/Z/g')"
 
       - name: Build image
@@ -45,7 +33,7 @@ jobs:
                        --label "org.opencontainers.image.title='The PHP Docker Image'" \
                        --label "org.opencontainers.image.authors=oanhnn" \
                        --label "org.opencontainers.image.licenses=MIT" \
-                       --label "org.opencontainers.image.version=${{ matrix.php }}" \
+                       --label "org.opencontainers.image.version=${{ steps.vars.outputs.version }}" \
                        --label "org.opencontainers.image.created=${{ steps.vars.outputs.created }}" \
                        --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
                        --label "org.opencontainers.image.revision=${{ github.sha }}" \
