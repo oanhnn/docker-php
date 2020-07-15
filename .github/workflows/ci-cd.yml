@@ -37,7 +37,7 @@ jobs:
       - name: Get the version
         id: vars
         run: |
-          if [[ "${{ matrix.variant }}" == *alpine ]]; then BASE_OS="alpine"; else BASE_OS="buster"; if
+          if [[ "${{ matrix.variant }}" =~ ^.*alpine$ ]]; then BASE_OS="alpine"; else BASE_OS="buster"; fi
           # Set step output
           echo "::set-output name=base_os::$(echo $BASE_OS)"
           echo "::set-output name=version::$(echo ${{ matrix.php }}-${{ matrix.variant }})"
