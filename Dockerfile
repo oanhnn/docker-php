@@ -1,24 +1,7 @@
-# Arguments
-ARG BRANCH
-ARG COMMIT
-ARG DATE
-ARG URL
 ARG VERSION
 
 # Base Image
-FROM php:7.4-fpm-alpine
-
-# Labels
-LABEL org.label-schema.schema-version="1.0" \
-    org.label-schema.vendor="Oanh Nguyen" \
-    org.label-schema.name="oanhnn/php" \
-    org.label-schema.description="The PHP Docker Image" \
-    org.label-schema.url="https://hub.docker.com/r/oanhnn/php" \
-    org.label-schema.build-date=$DATE \
-    org.label-schema.version="$VERSION" \
-    org.label-schema.vcs-url="$URL" \
-    org.label-schema.vcs-branch="$BRANCH" \
-    org.label-schema.vcs-ref="$COMMIT"
+FROM php:VERSION
 
 # Enviroments
 ENV PHP_ENABLE_XDEBUG=0 \
@@ -29,9 +12,9 @@ ENV PHP_ENABLE_XDEBUG=0 \
     PHP_UPLOAD_MAX_SIZE=2M \
     PHP_TIMEZONE=UTC
 
+# Install some extensions and runtime libraries
 RUN set -eux; \
     \
-    # Install some php extensions
     apk add --update --no-cache --virtual .build-deps \
         freetype-dev \
         gmp-dev \
@@ -64,7 +47,6 @@ RUN set -eux; \
         zip \
     ; \
     \
-    # Install some extensions
     pecl update-channels; \
     pecl install \
         imagick \
@@ -74,7 +56,6 @@ RUN set -eux; \
     docker-php-ext-enable imagick redis; \
     rm -rf /tmp/pear ~/.pearrc; \
     \
-    # Install runtime libraries
     runDeps="$( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
             | tr ',' '\n' \
@@ -84,7 +65,6 @@ RUN set -eux; \
     apk add --update --no-cache --virtual .run-deps $runDeps; \
     apk del .build-deps; \
     \
-    # smoke test
     php --version
 
 # Modify docker entrypoint
