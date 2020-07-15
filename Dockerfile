@@ -1,7 +1,7 @@
-ARG VERSION
+ARG VERSION=latest
 
 # Base Image
-FROM php:VERSION
+FROM php:$VERSION
 
 # Enviroments
 ENV PHP_ENABLE_XDEBUG=0 \
