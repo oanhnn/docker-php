@@ -20,10 +20,10 @@ jobs:
           - 7.3
           - 7.4
         variant:
-          - apache
-          - cli
-          - fpm
-          - zts
+          # - apache
+          # - cli
+          # - fpm
+          # - zts
           - cli-alpine
           - fpm-alpine
           - zts-alpine
