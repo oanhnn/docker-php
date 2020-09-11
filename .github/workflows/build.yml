@@ -1,4 +1,4 @@
-name: CI-CD
+name: build
 
 on:
   push:
@@ -11,16 +11,16 @@ env:
 
 jobs:
   build:
-    name: Build, test and publish image for tag ${{ matrix.php }}-${{ matrix.variant }}
+    name: Build and publish image for tag ${{ matrix.php }}-${{ matrix.variant }}
     strategy:
       matrix:
         php:
-          - 7.0
-          - 7.1
-          - 7.2
-          - 7.3
-          - 7.4
-          - 8.0-rc
+          - '7.0'
+          - '7.1'
+          - '7.2'
+          - '7.3'
+          - '7.4'
+          - '8.0-rc'
         variant:
           # - apache
           # - cli
@@ -45,7 +45,7 @@ jobs:
 
       - name: Build image
         run: |
-          cd ${{ matrix.php }}/${{ steps.vars.outputs.base_os }}
+          cd "${{ matrix.php }}/${{ steps.vars.outputs.base_os }}"
           docker build --pull --cache-from $DOCKER_IMAGE:${{ steps.vars.outputs.version }} \
                        --label "org.opencontainers.image.title='The PHP Docker Image'" \
                        --label "org.opencontainers.image.authors=oanhnn" \
@@ -55,11 +55,12 @@ jobs:
                        --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
                        --label "org.opencontainers.image.revision=${{ github.sha }}" \
                        --build-arg VERSION=${{ steps.vars.outputs.version }} \
-                       --tag $DOCKER_IMAGE:test .
+                       --tag $DOCKER_IMAGE:${{ github.sha }} .
+
       - name: Test php version
         run: |
-          docker run --rm $DOCKER_IMAGE:test php -v
-          docker run --rm $DOCKER_IMAGE:test php -m
+          docker run --rm $DOCKER_IMAGE:${{ github.sha }} php -v
+          docker run --rm $DOCKER_IMAGE:${{ github.sha }} php -m
 
       # - name: Publish image to Docker Hub
       #   if: github.event_name != 'pull_request'

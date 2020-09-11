@@ -185,5 +185,5 @@ If you would like to help take a look at the [list of issues](https://github.com
 ## License
 
 This project is released under the MIT License.   
-Copyright © 2018-2020 [Oanh Nguyen](https://github.com/oanhnn)   
+Copyright © 2020 [Oanh Nguyen](https://github.com/oanhnn)   
 Please see [License File](./LICENSE) for more information.
