@@ -29,6 +29,9 @@ jobs:
           - cli-alpine
           - fpm-alpine
           - zts-alpine
+        exclude:
+          - php: '8.0-rc'
+            variant: zts-alpine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
