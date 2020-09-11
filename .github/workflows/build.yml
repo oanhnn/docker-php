@@ -11,8 +11,9 @@ env:
 
 jobs:
   build:
-    name: Build and publish image for tag ${{ matrix.php }}-${{ matrix.variant }}
+    name: Build oanhnn/php:${{ matrix.php }}-${{ matrix.variant }}
     strategy:
+      fail-fast: false
       matrix:
         php:
           - '7.0'
@@ -31,7 +32,6 @@ jobs:
           - zts-alpine
         exclude:
           - php: '8.0-rc'
-            variant: zts-alpine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
