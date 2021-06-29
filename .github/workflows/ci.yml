@@ -63,4 +63,5 @@ jobs:
 
       - name: Test
         run: |
-          docker run ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }} php -v && php -m
+          docker run ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }} php -v
+          docker run ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }} php -m
