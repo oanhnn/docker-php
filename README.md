@@ -1,5 +1,6 @@
 # oanhnn/docker-php
 
+[![CI](https://github.com/oanhnn/docker-php/actions/workflows/ci.yml/badge.svg)](https://github.com/oanhnn/docker-php/actions/workflows/ci.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/oanhnn/php)](https://hub.docker.com/r/oanhnn/php)
 [![Software License](https://img.shields.io/github/license/oanhnn/docker-php.svg)](LICENSE)
 
