@@ -61,6 +61,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           builder: ${{ steps.buildx.outputs.name }}
+          build-args: VERSION=${{ steps.prepare.outputs.version }}
           cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }}
           cache-to: type=inline
           context: ${{ matrix.php }}/${{ steps.prepare.outputs.base_os }}
