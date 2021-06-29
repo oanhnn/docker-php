@@ -8,6 +8,7 @@ RUN set -eux; \
     apk add --update --no-cache --virtual .build-deps \
         freetype-dev \
         gmp-dev \
+        icu-dev \
         libintl \
         libjpeg-turbo-dev \
         libpng-dev \

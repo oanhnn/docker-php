@@ -10,6 +10,7 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libgmp-dev \
+        libicu-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
         libpq-dev \
@@ -41,7 +42,7 @@ RUN set -eux; \
     docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
     apt-mark auto '.*' > /dev/null; \
-    [ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
+    apt-mark manual $savedAptMark; \
     find /usr/local -type f -executable -exec ldd '{}' ';' \
         | awk '/=>/ { print $(NF-1) }' \
         | sort -u \
