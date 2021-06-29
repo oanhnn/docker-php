@@ -24,6 +24,59 @@
 
 - Use like with official image
 
+```shell
+$ docker run --rm oanhnn/php:7.4-cli -m
+[PHP Modules]
+bcmath
+Core
+ctype
+curl
+date
+dom
+fileinfo
+filter
+ftp
+gd
+gmp
+hash
+iconv
+intl
+json
+libxml
+mbstring
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+Phar
+posix
+readline
+redis
+Reflection
+session
+SimpleXML
+sockets
+sodium
+SPL
+sqlite3
+standard
+tokenizer
+xml
+xmlreader
+xmlwriter
+Zend OPcache
+zip
+zlib
+
+[Zend Modules]
+Zend OPcache
+
+```
+
 ## Contributing
 
 All code contributions must go through a pull request and approved by a core developer before being merged. 
@@ -37,4 +90,4 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 This project is released under the MIT License.   
 Copyright © 2021 [Oanh Nguyen](https://github.com/oanhnn)   
-Please see [License File](./LICENSE) for more information.
+Please see [License File](LICENSE) for more information.
