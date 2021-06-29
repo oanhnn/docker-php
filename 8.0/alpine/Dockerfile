@@ -9,14 +9,12 @@ RUN set -eux; \
         freetype-dev \
         gmp-dev \
         icu-dev \
-        imagemagick-dev \
         libintl \
         libjpeg-turbo-dev \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
         postgresql-dev \
-        zlib-dev \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
@@ -38,11 +36,10 @@ RUN set -eux; \
     \
     pecl update-channels; \
     pecl install \
-        imagick \
         redis \
         xdebug \
     ; \
-    docker-php-ext-enable imagick redis; \
+    docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
     \
     runDeps="$( \

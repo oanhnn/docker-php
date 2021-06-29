@@ -5,15 +5,15 @@ FROM php:$VERSION
 # Install some extensions and runtime libraries
 RUN set -eux; \
     \
-    apk add --update --no-cache --virtual .build-deps \
-        freetype-dev \
-        gmp-dev \
-        libintl \
-        libjpeg-turbo-dev \
+    savedAptMark="$(apt-mark showmanual)"; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        libfreetype6-dev \
+        libgmp-dev \
+        libjpeg62-turbo-dev \
         libpng-dev \
-        libxml2-dev \
+        libpq-dev \
         libzip-dev \
-        postgresql-dev \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
@@ -40,14 +40,16 @@ RUN set -eux; \
     ; \
     docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
-    \
-    runDeps="$( \
-        scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
-            | tr ',' '\n' \
-            | sort -u \
-            | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
-    )"; \
-    apk add --update --no-cache --virtual .run-deps $runDeps; \
-    apk del .build-deps; \
+    apt-mark auto '.*' > /dev/null; \
+    [ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
+    find /usr/local -type f -executable -exec ldd '{}' ';' \
+        | awk '/=>/ { print $(NF-1) }' \
+        | sort -u \
+        | xargs -r dpkg-query --search \
+        | cut -d: -f1 \
+        | sort -u \
+        | xargs -r apt-mark manual \
+    ; \
+    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     \
     php --version
