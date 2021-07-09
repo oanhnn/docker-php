@@ -65,3 +65,8 @@ jobs:
         run: |
           docker run ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }} php -v
           docker run ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }} php -m
+
+      - uses: Azure/container-scan@v0
+        with:
+          image-name: ${{ env.DOCKER_IMAGE }}:${{ steps.prepare.outputs.version }}
+          severity-threshold: MEDIUM
