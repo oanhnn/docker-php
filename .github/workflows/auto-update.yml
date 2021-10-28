@@ -1,0 +1,28 @@
+name: Auto update
+
+on:
+  # Check new version in the nightly at 7:15 AM on Saturday UTC
+  schedule:
+    - cron: "15 7 * * 6"
+
+defaults:
+  run:
+    shell: 'bash -Eeuo pipefail -x {0}'
+
+jobs:
+  check-update:
+    name: Check Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Update
+        run: make update
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update PHP

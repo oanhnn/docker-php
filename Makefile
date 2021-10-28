@@ -1,10 +1,10 @@
 # Usage:
 #	make		Generating Dockerfile
 
-.PHONY: all generate
+.PHONY: all update
 
-all: generate
+all: update
 
-generate:
+update:
 	rm -f versions.json
 	./apply-templates.sh
