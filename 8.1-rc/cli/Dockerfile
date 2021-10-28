@@ -1,8 +1,10 @@
-ARG VERSION
+#
+# NOTE: THIS DOCKERFILE IS GENERATED VIA "apply-templates.sh"
+#
+# PLEASE DO NOT EDIT IT DIRECTLY.
+#
+FROM php:8.1.0RC4-cli-buster
 
-FROM php:$VERSION
-
-# Install some extensions and runtime libraries
 RUN set -eux; \
     \
     savedAptMark="$(apt-mark showmanual)"; \

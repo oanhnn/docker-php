@@ -1,28 +1,27 @@
-ARG VERSION
+#
+# NOTE: THIS DOCKERFILE IS GENERATED VIA "apply-templates.sh"
+#
+# PLEASE DO NOT EDIT IT DIRECTLY.
+#
+FROM php:7.3.32-zts-alpine3.14
 
-FROM php:$VERSION
-
-# Install some extensions and runtime libraries
 RUN set -eux; \
     \
     apk add --update --no-cache --virtual .build-deps \
         freetype-dev \
         gmp-dev \
         icu-dev \
-        imagemagick-dev \
         libintl \
         libjpeg-turbo-dev \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
         postgresql-dev \
-        zlib-dev \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
-        --with-freetype-dir=/usr/include/ \
-        --with-jpeg-dir=/usr/include/ \
-        --with-png-dir=/usr/include/ \
+        --with-freetype=/usr/include/ \
+        --with-jpeg=/usr/include/ \
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath \
@@ -39,11 +38,10 @@ RUN set -eux; \
     \
     pecl update-channels; \
     pecl install \
-        imagick \
         redis \
         xdebug \
     ; \
-    docker-php-ext-enable imagick redis; \
+    docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
     \
     runDeps="$( \

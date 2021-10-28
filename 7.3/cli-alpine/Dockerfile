@@ -1,8 +1,10 @@
-ARG VERSION
+#
+# NOTE: THIS DOCKERFILE IS GENERATED VIA "apply-templates.sh"
+#
+# PLEASE DO NOT EDIT IT DIRECTLY.
+#
+FROM php:7.3.32-cli-alpine3.14
 
-FROM php:$VERSION
-
-# Install some extensions and runtime libraries
 RUN set -eux; \
     \
     apk add --update --no-cache --virtual .build-deps \

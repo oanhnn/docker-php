@@ -10,5 +10,4 @@
 
 ## Reporting a Vulnerability
 
-If you discover any vulnerability, please email to [Oanh Nguyen](mailto:oanhnn.bk@gmail.com) instead of 
-using the issue tracker.
+If you discover any security related issues, please email to [Oanh Nguyen](mailto:oanhnn.bk@gmail.com) instead of using the issue tracker.

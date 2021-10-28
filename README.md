@@ -2,28 +2,12 @@
 
 [![CI](https://github.com/oanhnn/docker-php/actions/workflows/ci.yml/badge.svg)](https://github.com/oanhnn/docker-php/actions/workflows/ci.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/oanhnn/php)](https://hub.docker.com/r/oanhnn/php)
-[![Software License](https://img.shields.io/github/license/oanhnn/docker-php.svg)](LICENSE)
+[![Software License](https://img.shields.io/github/license/oanhnn/docker-php.svg)](LICENSE.md)
 
 ## Features
 
-- [x] All images are build from PHP official images base on `buster` or `alpine`.
+- [x] All images are build from PHP official images.
 - [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, xdebug
-
-## Tags.
-
-- All images are tag by format `oanhnn/php:<php-version>-<variant>`. Eg `oanhnn/php:7.4-fpm-alpine`
-- PHP versions supported: `7.4`, `8.0`
-- Variants supported: `apache`, `cli`, `fpm`, `zts`, `cli-alpine`, `fpm-alpine`
-
-> Old versions supported:
-> - `7.0-cli-alpine`, `7.0-fpm-alpine`, `7.0-zts-alpine`,
-> - `7.1-cli-alpine`, `7.1-fpm-alpine`, `7.1-zts-alpine`, 
-> - `7.2-cli-alpine`, `7.2-fpm-alpine`, `7.2-zts-alpine`, 
-> - `7.3-cli-alpine`, `7.3-fpm-alpine`, `7.3-zts-alpine`, 
-
-## Usage
-
-- Use like with official image
 
 ```shell
 $ docker run --rm oanhnn/php:7.4-cli -m
@@ -78,6 +62,103 @@ Zend OPcache
 
 ```
 
+## Tags.
+
+<table style="border: 1px">
+    <tr>
+        <th rowspan="2">Version</th>
+        <th colspan="7">Variants</th>
+    </tr>
+    <tr>
+        <th>apache</th>
+        <th>cli</th>
+        <th>fpm</th>
+        <th>zts</th>
+        <th>cli-alpine</th>
+        <th>fpm-alpine</th>
+        <th>zts-alpine</th>
+    </tr>
+    <tr>
+        <th>7.0</th>
+        <td>7.0-apache</td>
+        <td>7.0-cli</td>
+        <td>7.0-fpm</td>
+        <td>7.0-zts</td>
+        <td>7.0-cli-alpine</td>
+        <td>7.0-fpm-alpine</td>
+        <td>7.0-zts-alpine</td>
+    </tr>
+    <tr>
+        <th>7.1</th>
+        <td>7.1-apache</td>
+        <td>7.1-cli</td>
+        <td>7.1-fpm</td>
+        <td>7.1-zts</td>
+        <td>7.1-cli-alpine</td>
+        <td>7.1-fpm-alpine</td>
+        <td>7.1-zts-alpine</td>
+    </tr>
+    <tr>
+        <th>7.2</th>
+        <td>7.2-apache</td>
+        <td>7.2-cli</td>
+        <td>7.2-fpm</td>
+        <td>7.2-zts</td>
+        <td>7.2-cli-alpine</td>
+        <td>7.2-fpm-alpine</td>
+        <td>7.2-zts-alpine</td>
+    </tr>
+    <tr>
+        <th>7.3</th>
+        <td>7.3-apache</td>
+        <td>7.3-cli</td>
+        <td>7.3-fpm</td>
+        <td>7.3-zts</td>
+        <td>7.3-cli-alpine</td>
+        <td>7.3-fpm-alpine</td>
+        <td>7.3-zts-alpine</td>
+    </tr>
+    <tr>
+        <th>7.4</th>
+        <td>7.4-apache</td>
+        <td>7.4-cli</td>
+        <td>7.4-fpm</td>
+        <td>7.4-zts</td>
+        <td>7.4-cli-alpine</td>
+        <td>7.4-fpm-alpine</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>8.0</th>
+        <td>8.0-apache</td>
+        <td>8.0-cli</td>
+        <td>8.0-fpm</td>
+        <td>8.0-zts</td>
+        <td>8.0-cli-alpine</td>
+        <td>8.0-fpm-alpine</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>8.1-rc</th>
+        <td>8.1-rc-apache</td>
+        <td>8.1-rc-cli</td>
+        <td>8.1-rc-fpm</td>
+        <td>8.1-rc-zts</td>
+        <td>8.1-rc-cli-alpine</td>
+        <td>8.1-rc-fpm-alpine</td>
+        <td></td>
+    </tr>
+</table>
+
+
+## Usage
+
+- Use like with official image
+
+```
+docker run -d --rm -p 9000:9000 -v $(pwd):/var/www oanhnn/php:8.0-fpm
+```
+
 ## Contributing
 
 All code contributions must go through a pull request and approved by a core developer before being merged. 
@@ -87,8 +168,15 @@ Fork the project, create a feature branch, and send a pull request.
 
 If you would like to help take a look at the [list of issues](https://github.com/oanhnn/docker-php/issues).
 
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Oanh Nguyen](https://github.com/oanhnn)
+- [All Contributors](../../contributors)
+
 ## License
 
-This project is released under the MIT License.   
-Copyright © 2021 [Oanh Nguyen](https://github.com/oanhnn)   
-Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
