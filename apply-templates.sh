@@ -14,7 +14,7 @@ EOH
 
 declare -A default_suites=(
     [alpine]='alpine3.14'
-    [debian]='buster'
+    [debian]='bullseye'
 )
 
 # Get "versions.json" first

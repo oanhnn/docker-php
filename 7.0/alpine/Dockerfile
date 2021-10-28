@@ -1,6 +1,4 @@
-ARG VERSION
-
-FROM php:$VERSION
+FROM php:7.0-alpine
 
 # Install some extensions and runtime libraries
 RUN set -eux; \
