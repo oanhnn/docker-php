@@ -24,11 +24,18 @@ jobs:
           - zts
           - cli-alpine
           - fpm-alpine
-        includes:
+        include:
           - php: '7.3'
             variant: zts-alpine
           - php: '7.4'
             variant: zts-alpine
+          # Support old versions of PHP
+          - php: '7.0'
+            variant: alpine
+          - php: '7.1'
+            variant: alpine
+          - php: '7.2'
+            variant: alpine
     env:
       DOCKER_IMAGE: oanhnn/php
     steps:
