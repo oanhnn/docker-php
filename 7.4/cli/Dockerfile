@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:7.4.25-cli-buster
+FROM php:7.4.25-cli-bullseye
 
 RUN set -eux; \
     \

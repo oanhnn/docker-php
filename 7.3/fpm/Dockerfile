@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:7.3.32-fpm-buster
+FROM php:7.3.31-fpm-bullseye
 
 RUN set -eux; \
     \

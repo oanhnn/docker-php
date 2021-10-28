@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:7.3.32-apache-buster
+FROM php:7.3.31-apache-bullseye
 
 RUN set -eux; \
     \
