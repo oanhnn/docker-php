@@ -20,8 +20,8 @@ RUN set -eux; \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
-        --with-freetype=/usr/include/ \
-        --with-jpeg=/usr/include/ \
+        --with-freetype-dir=/usr \
+        --with-jpeg-dir=/usr \
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath \

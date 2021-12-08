@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:7.3.33-zts-alpine3.14
+FROM php:7.3.33-zts-alpine3.15
 
 RUN set -eux; \
     \
@@ -20,8 +20,8 @@ RUN set -eux; \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
-        --with-freetype=/usr/include/ \
-        --with-jpeg=/usr/include/ \
+        --with-freetype-dir=/usr \
+        --with-jpeg-dir=/usr \
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath \

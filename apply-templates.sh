@@ -13,7 +13,7 @@ EOH
 }
 
 declare -A default_suites=(
-    [alpine]='alpine3.14'
+    [alpine]='alpine3.15'
     [debian]='bullseye'
 )
 
@@ -37,7 +37,7 @@ if [ "$#" -eq 0 ]; then
 fi
 
 for version; do
-    export version
+    export version # "8.0", etc
 
     # latest version
     latest="$(jq -r '.[env.version].version' versions.json)" # "8.0.8", etc

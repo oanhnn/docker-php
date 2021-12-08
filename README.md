@@ -139,13 +139,13 @@ Zend OPcache
         <td>-</td>
     </tr>
     <tr>
-        <th>8.1-rc</th>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/apache/Dockerfile" title="8.1-rc-apache">8.1-rc-apache</a></td>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/cli/Dockerfile" title="8.1-rc-cli">8.1-rc-cli</a></td>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/fpm/Dockerfile" title="8.1-rc-fpm">8.1-rc-fpm</a></td>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/zts/Dockerfile" title="8.1-rc-zts">8.1-rc-zts</a></td>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/cli-alpine/Dockerfile" title="8.1-rc-cli-alpine">8.1-rc-cli-alpine</a></td>
-        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1-rc/fpm-alpine/Dockerfile" title="8.1-rc-fpm-alpine">8.1-rc-fpm-alpine</a></td>
+        <th>8.1</th>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/apache/Dockerfile" title="8.1-apache">8.1-apache</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/cli/Dockerfile" title="8.1-cli">8.1-cli</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/fpm/Dockerfile" title="8.1-fpm">8.1-fpm</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/zts/Dockerfile" title="8.1-zts">8.1-zts</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/cli-alpine/Dockerfile" title="8.1-cli-alpine">8.1-cli-alpine</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/fpm-alpine/Dockerfile" title="8.1-fpm-alpine">8.1-fpm-alpine</a></td>
         <td>-</td>
     </tr>
 </table>
