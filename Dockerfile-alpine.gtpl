@@ -15,8 +15,13 @@ RUN set -eux; \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
+{{ if env.version == "7.3" then ( -}}
+        --with-freetype-dir=/usr \
+        --with-jpeg-dir=/usr \
+{{ ) else ( -}}
         --with-freetype=/usr/include/ \
         --with-jpeg=/usr/include/ \
+{{ ) end -}}
     ; \
     docker-php-ext-install -j"$(getconf _NPROCESSORS_ONLN)" \
         bcmath \
