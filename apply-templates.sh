@@ -38,22 +38,18 @@ fi
 
 for version; do
     export version # "8.0", etc
-    
+
+    if [ -d "$version" ]; then
+        rm -rf "$version"
+    fi
+
     if jq -e '.[env.version] | not' versions.json > /dev/null; then
         echo "deleting $version ..."
-	if [ -d "$version" ]; then
-	    rm -rf "$version"
-	fi
         continue
     fi
 
     # latest version
     latest="$(jq -r '.[env.version].version' versions.json)" # "8.0.8", etc
-
-    # remove rc dir
-    #if [ -d "$version-rc" ]; then
-    #    rm -rf "$version-rc"
-    #fi
 
     variants="$(jq -r '.[env.version].variants | map(@sh) | join(" ")' versions.json)"
     eval "variants=( $variants )"
