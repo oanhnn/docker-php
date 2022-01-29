@@ -27,7 +27,7 @@ jqt='.jq-template.awk'
 if [ -n "${BASHBREW_SCRIPTS:-}" ]; then
     jqt="$BASHBREW_SCRIPTS/jq-template.awk"
 elif [ "$BASH_SOURCE" -nt "$jqt" ]; then
-    wget -qO "$jqt" 'https://github.com/docker-library/bashbrew/raw/5f0c26381fb7cc78b2d217d58007800bdcfbcfa1/scripts/jq-template.awk'
+    wget -qO "$jqt" 'https://github.com/docker-library/bashbrew/raw/1da7341a79651d28fbcc3d14b9176593c4231942/scripts/jq-template.awk'
 fi
 
 # If you do not specify any version as argument, all versions will be used as argument
@@ -38,14 +38,22 @@ fi
 
 for version; do
     export version # "8.0", etc
+    
+    if jq -e '.[env.version] | not' versions.json > /dev/null; then
+        echo "deleting $version ..."
+	if [ -d "$version" ]; then
+	    rm -rf "$version"
+	fi
+        continue
+    fi
 
     # latest version
     latest="$(jq -r '.[env.version].version' versions.json)" # "8.0.8", etc
 
     # remove rc dir
-    if [ -d "$version-rc" ]; then
-        rm -rf "$version-rc"
-    fi
+    #if [ -d "$version-rc" ]; then
+    #    rm -rf "$version-rc"
+    #fi
 
     variants="$(jq -r '.[env.version].variants | map(@sh) | join(" ")' versions.json)"
     eval "variants=( $variants )"
