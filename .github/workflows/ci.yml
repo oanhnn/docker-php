@@ -21,10 +21,11 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - '7.3'
           - '7.4'
           - '8.0'
+          - '8.0-rc'
           - '8.1'
+          - '8.1-rc'
         variant:
           - apache
           - cli
@@ -33,17 +34,8 @@ jobs:
           - cli-alpine
           - fpm-alpine
         include:
-          - php: '7.3'
-            variant: zts-alpine
           - php: '7.4'
             variant: zts-alpine
-          # Support old versions of PHP
-          - php: '7.0'
-            variant: alpine
-          - php: '7.1'
-            variant: alpine
-          - php: '7.2'
-            variant: alpine
     env:
       DOCKER_IMAGE: oanhnn/php
     steps:

@@ -10,7 +10,7 @@
 - [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, xdebug
 
 ```shell
-$ docker run --rm oanhnn/php:7.4-cli -m
+$ docker run --rm oanhnn/php:8.0-cli -m
 [PHP Modules]
 bcmath
 Core
