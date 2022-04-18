@@ -14,28 +14,26 @@ on:
       - develop
 
 jobs:
+  generate-jobs:
+    name: Generate Jobs
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate-jobs.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: generate-jobs
+        name: Generate Jobs
+        run: |
+          matrix="$(./.github/workflows/generate.sh)"
+          jq . <<<"$matrix" # sanity check / debugging aid
+          echo "::set-output name=matrix::$matrix"
+
   test:
     name: Build and test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        php:
-          - '7.4'
-          - '8.0'
-          - '8.0-rc'
-          - '8.1'
-          - '8.1-rc'
-        variant:
-          - apache
-          - cli
-          - fpm
-          - zts
-          - cli-alpine
-          - fpm-alpine
-        include:
-          - php: '7.4'
-            variant: zts-alpine
+      matrix: ${{ fromJson(needs.generate-jobs.outputs.matrix) }}
     env:
       DOCKER_IMAGE: oanhnn/php
     steps:
