@@ -30,6 +30,7 @@ jobs:
 
   test:
     name: Build and test
+    needs: generate-jobs
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
