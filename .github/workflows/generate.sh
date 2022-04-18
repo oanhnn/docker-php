@@ -6,12 +6,11 @@ dirs=$(echo */*)
 json='{"include":[]}'
 
 for i in $dirs; do
-  echo "Generating $i"
-  if [[ " ${versions[*]} " =~ " ${i%/*} " ]]; then
-    echo "PHP ${i%/*}"
-    echo "Variable ${i##*/}"
-
-    json=$(echo $json | jq '.include[.include|length] |= {"php": "'"${i%/*}"'", "variables": "'"${i##*/}"'"}')
+  # echo "Generating $i"
+  php=${i%/*}
+  variant=${i##*/}
+  if [[ " ${versions[*]} " =~ " $php " ]]; then
+    json=$(echo $json | jq '.include[.include|length] |= {"php": "'"$php"'", "variant": "'"$variant"'"}')
   fi
 done
 

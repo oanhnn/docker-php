@@ -24,7 +24,7 @@ jobs:
       - id: generate-jobs
         name: Generate Jobs
         run: |
-          matrix="$(./.github/workflows/generate.sh)"
+          matrix=$(./.github/workflows/generate.sh)
           jq . <<<"$matrix" # sanity check / debugging aid
           echo "::set-output name=matrix::$matrix"
 
