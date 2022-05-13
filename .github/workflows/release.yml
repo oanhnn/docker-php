@@ -42,7 +42,7 @@ jobs:
           echo "::set-output name=created::$(date --utc --iso-8601=seconds | sed 's/+00.00/Z/g')"
 
       - name: Setting up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
         with:
           platforms: all
 
