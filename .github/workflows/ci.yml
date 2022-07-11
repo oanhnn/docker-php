@@ -41,12 +41,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Prepare
-        id: prepare
-        run: |
-          echo "::set-output name=dir::$(echo ${{ matrix.php }}/${{ matrix.variant }})"
-          echo "::set-output name=tag::$(echo ${{ env.DOCKER_IMAGE }}:${{ matrix.php }}-${{ matrix.variant }})"
-          echo "::set-output name=created::$(date --utc --iso-8601=seconds | sed 's/+00.00/Z/g')"
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            oanhnn/php
+          tags: |
+            type=raw,value=${{ matrix.php }}-${{ matrix.variant }}
 
       - name: Setting up Docker Buildx
         id: buildx
@@ -56,12 +58,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          cache-from: type=registry,ref=${{ steps.prepare.outputs.tag }}
-          cache-to: type=inline
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
           context: ${{ steps.prepare.outputs.dir }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           pull: true
           load: true
-          tags: ${{ steps.prepare.outputs.tag }}
 
       - name: Test
         run: |

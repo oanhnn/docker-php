@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-versions="7.4 8.0 8.0-rc 8.1 8.1-rc"
+versions="7.4 8.0 8.0-rc 8.1 8.1-rc 8.2 8.2-rc"
 dirs=$(echo */*)
 json='{"include":[]}'
 
