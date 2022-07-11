@@ -46,7 +46,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            oanhnn/php
+            ${{ env.DOCKER_IMAGE }}
           tags: |
             type=raw,value=${{ matrix.php }}-${{ matrix.variant }}
           labels: |
@@ -72,8 +72,8 @@ jobs:
 
       - name: Test
         run: |
-          docker run ${{ steps.prepare.outputs.tag }} php -v
-          docker run ${{ steps.prepare.outputs.tag }} php -m
+          docker run ${{ env.DOCKER_IMAGE }}:${{ matrix.php }}-${{ matrix.variant }} php -v
+          docker run ${{ env.DOCKER_IMAGE }}:${{ matrix.php }}-${{ matrix.variant }} php -m
 
       - name: Check vulnerabilities
         uses: snyk/actions/docker@master
@@ -81,8 +81,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: ${{ steps.prepare.outputs.tag }}
-          args: --file=${{ steps.prepare.outputs.dir }}/Dockerfile --exclude-base-image-vulns
+          image: ${{ env.DOCKER_IMAGE }}:${{ matrix.php }}-${{ matrix.variant }}
+          args: --file=${{ matrix.php }}/${{ matrix.variant }}/Dockerfile --exclude-base-image-vulns
 
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
