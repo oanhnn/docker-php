@@ -6,12 +6,16 @@ dirs=$(echo */*)
 json='{"include":[]}'
 
 for i in $dirs; do
-  # echo "Generating $i"
-  php=${i%/*}
-  variant=${i##*/}
-  if [[ " ${versions[*]} " =~ " $php " ]]; then
-    json=$(echo $json | jq '.include[.include|length] |= {"php": "'"$php"'", "variant": "'"$variant"'"}')
-  fi
+    # echo "Generating $i"
+    php=${i%/*}
+    variant=${i##*/}
+    if [[ " ${versions[*]} " =~ " $php " ]]; then
+        experimental=false
+        if [[ ${php:(-3)} == "-rc" ]]; then
+            experimental=true
+        fi
+        json=$(echo $json | jq '.include[.include|length] |= {"php": "'"$php"'", "variant": "'"$variant"'", "experimental": "'"$experimental"'"}')
+    fi
 done
 
 echo $json
