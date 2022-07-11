@@ -32,7 +32,7 @@ jobs:
     name: Build and test
     needs: generate-jobs
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: ${{ matrix.experimental == 'true' }}
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.generate-jobs.outputs.matrix) }}
