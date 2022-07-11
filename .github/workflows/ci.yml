@@ -49,6 +49,10 @@ jobs:
             oanhnn/php
           tags: |
             type=raw,value=${{ matrix.php }}-${{ matrix.variant }}
+          labels: |
+            org.opencontainers.image.title=The PHP Docker Image
+            org.opencontainers.image.description=The PHP Docker Image base from PHP official images and installed some useful PHP extensions
+            org.opencontainers.image.author=oanhnn
 
       - name: Setting up Docker Buildx
         id: buildx
@@ -60,7 +64,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache
           cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
-          context: ${{ steps.prepare.outputs.dir }}
+          context: ${{ matrix.php }}/${{ matrix.variant }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           pull: true
