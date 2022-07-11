@@ -8,6 +8,7 @@
 
 - [x] All images are build from PHP official images.
 - [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, xdebug
+- [x] Publish to [Docker Hub](https://hub.docker.com/r/oanhnn/php) and [GHDR.IO](https://github.com/oanhnn/docker-php/pkgs/container/php)
 
 ```shell
 $ docker run --rm oanhnn/php:8.0-cli -m

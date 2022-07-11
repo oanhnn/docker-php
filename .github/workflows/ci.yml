@@ -70,8 +70,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache
-          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache-${{ matrix.php }}-${{ matrix.variant }}
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache-${{ matrix.php }}-${{ matrix.variant }},mode=max
           context: ${{ matrix.php }}/${{ matrix.variant }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

@@ -21,7 +21,7 @@ jobs:
           echo "::set-output name=matrix::$matrix"
 
   release:
-    name: Build and release to Docker Hub
+    name: Release image
     needs: generate-jobs
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental == 'true' }}
@@ -39,10 +39,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
+            ${{ env.DOCKER_IMAGE }}
             oanhnn/php
-            ghcr.io/oanhnn/php
           tags: |
             type=raw,value=${{ matrix.php }}-${{ matrix.variant }}
+          labels: |
+            org.opencontainers.image.title=The PHP Docker Image
+            org.opencontainers.image.description=The PHP Docker Image base from PHP official images and installed some useful PHP extensions
+            org.opencontainers.image.author=oanhnn
 
       - name: Setting up QEMU
         uses: docker/setup-qemu-action@v2
@@ -71,8 +75,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache
-          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache-${{ matrix.php }}-${{ matrix.variant }}
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache-${{ matrix.php }}-${{ matrix.variant }},mode=max
           context: ${{ matrix.php }}/${{ matrix.variant }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
