@@ -13,16 +13,14 @@ json='{"include":[]}'
 for dir in $dirs; do
     version=${dir%/*}
     variant=${dir##*/}
-    # echo "Generating $dir ..."
+    # echo "Generating $dir => $version/$variant ..."
 
-    if [[ ! " ${versions[*]} " =~ " ${version} " ]]; then
-        echo "skip $version ..."
+    if [[ ! "${versions[*]}" =~ "'${version}'" ]]; then
         continue
     fi
 
     export version
     if jq -e '.[env.version] | not' versions.json > /dev/null; then
-        echo "skip $version ..."
         continue
     fi
 
