@@ -13,7 +13,7 @@ EOH
 }
 
 declare -A default_suites=(
-    [alpine]='alpine3.15'
+    [alpine]='alpine3.17'
     [debian]='bullseye'
 )
 
