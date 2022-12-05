@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.0.26RC1-zts-bullseye
+FROM php:8.0.26RC1-zts
 
 RUN set -eux; \
     \

@@ -12,11 +12,6 @@ generated_warning() {
 EOH
 }
 
-declare -A default_suites=(
-    [alpine]='alpine3.17'
-    [debian]='bullseye'
-)
-
 # Get "versions.json" first
 if [ ! -f versions.json ]; then
     wget -qO versions.json 'https://raw.githubusercontent.com/docker-library/php/master/versions.json'
@@ -27,10 +22,11 @@ jqt='.jq-template.awk'
 if [ -n "${BASHBREW_SCRIPTS:-}" ]; then
     jqt="$BASHBREW_SCRIPTS/jq-template.awk"
 elif [ "$BASH_SOURCE" -nt "$jqt" ]; then
-    wget -qO "$jqt" 'https://github.com/docker-library/bashbrew/raw/1da7341a79651d28fbcc3d14b9176593c4231942/scripts/jq-template.awk'
+    # https://github.com/docker-library/bashbrew/blob/master/scripts/jq-template.awk
+    wget -qO "$jqt" 'https://github.com/docker-library/bashbrew/raw/9f6a35772ac863a0241f147c820354e4008edf38/scripts/jq-template.awk'
 fi
 
-# If you do not specify any version as argument, all versions will be used as argument
+# If you do not specify any version as argument, all parsed versions will be used as argument
 if [ "$#" -eq 0 ]; then
     versions="$(jq -r 'keys | map(@sh) | join(" ")' versions.json)"
     eval "set -- $versions"
@@ -61,29 +57,24 @@ for version; do
         alpineVer="${suite#alpine}" # "3.12", etc
         if [ "$suite" != "$alpineVer" ]; then
             distro='alpine'
+            from="$latest-$variant-alpine"
+            target_dir="$version/$variant-alpine"
         else
             distro='debian'
-        fi
-
-        if [ "${default_suites[$distro]:-}" = "$suite" ]; then
-            echo "processing $version/$dir ..."
-
-            template="Dockerfile-$distro.gtpl"
-            from="$latest-$variant-$suite"
-            export from
-
+            from="$latest-$variant"
             target_dir="$version/$variant"
-            if [ 'alpine' == "$distro" ]; then
-                target_dir="$target_dir-alpine"
-            fi
-            mkdir -p $target_dir
+        fi
+        export from distro alpineVer
 
+        # Generate Dockerfile
+        if [ ! -d "$target_dir" ] && [[ 'alpine' != "$distro" || 'apache' != "$variant" ]]; then
+            echo "generate $target_dir ..."
+            mkdir -p "$target_dir"
             {
                 generated_warning
-                gawk -f "$jqt" "$template"
+                gawk -f "$jqt" "Dockerfile-$distro.gtpl"
             } > "$target_dir/Dockerfile"
-        else
-            echo "skip $version/$dir ..."
         fi
+
     done
 done
