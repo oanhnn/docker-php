@@ -7,11 +7,11 @@
 ## Features
 
 - [x] All images are build from PHP official images.
-- [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, xdebug
-- [x] Publish to [Docker Hub](https://hub.docker.com/r/oanhnn/php) and [GHDR.IO](https://github.com/oanhnn/docker-php/pkgs/container/php)
+- [x] Install some PHP extensions: bcmath, gd, gmp, intl, opcache, pdo_mysql, pdo_pgsql, pcntl, zip, redis, xdebug (disable by default)
+- [x] Publish to [Docker Hub](https://hub.docker.com/r/oanhnn/php) and [GHCR.IO](https://github.com/oanhnn/docker-php/pkgs/container/php)
 
 ```shell
-$ docker run --rm oanhnn/php:8.0-cli -m
+$ docker run --rm oanhnn/php:8.1-cli -m
 [PHP Modules]
 bcmath
 Core
@@ -137,7 +137,7 @@ Zend OPcache
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.0/zts/Dockerfile" title="8.0-zts">8.0-zts</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.0/cli-alpine/Dockerfile" title="8.0-cli-alpine">8.0-cli-alpine</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.0/fpm-alpine/Dockerfile" title="8.0-fpm-alpine">8.0-fpm-alpine</a></td>
-        <td>-</td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.0/zts-alpine/Dockerfile" title="8.0-zts-alpine">8.0-zts-alpine</a></td>
     </tr>
     <tr>
         <th>8.1</th>
@@ -147,7 +147,7 @@ Zend OPcache
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/zts/Dockerfile" title="8.1-zts">8.1-zts</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/cli-alpine/Dockerfile" title="8.1-cli-alpine">8.1-cli-alpine</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/fpm-alpine/Dockerfile" title="8.1-fpm-alpine">8.1-fpm-alpine</a></td>
-        <td>-</td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.1/zts-alpine/Dockerfile" title="8.1-zts-alpine">8.1-zts-alpine</a></td>
     </tr>
 </table>
 
