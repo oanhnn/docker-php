@@ -1,9 +1,9 @@
 name: Auto update
 
 on:
-  # Check new version in the nightly at 7:15 AM on Saturday UTC
+  # Check new version weekly at 05:00 AM on Monday UTC
   schedule:
-    - cron: "15 7 * * 6"
+    - cron: "0 5 * * 1"
 
 defaults:
   run:
@@ -12,7 +12,7 @@ defaults:
 jobs:
   check-update:
     name: Check Update
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3

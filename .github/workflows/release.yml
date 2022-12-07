@@ -8,7 +8,7 @@ on:
 jobs:
   generate-jobs:
     name: Generate Jobs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       matrix: ${{ steps.generate-jobs.outputs.matrix }}
     steps:
@@ -18,12 +18,12 @@ jobs:
         run: |
           matrix=$(./.github/workflows/generate.sh)
           jq . <<<"$matrix" # sanity check / debugging aid
-          echo "::set-output name=matrix::$matrix"
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
 
   release:
     name: Release image
     needs: generate-jobs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     continue-on-error: ${{ matrix.experimental == 'true' }}
     strategy:
       fail-fast: false
