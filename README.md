@@ -167,7 +167,7 @@ Zend OPcache
 - Use like with official image
 
 ```
-docker run -d --rm -p 9000:9000 -v $(pwd):/var/www oanhnn/php:8.0-fpm
+docker run -d --rm -p 9000:9000 -v $(pwd):/var/www oanhnn/php:8.2-fpm
 ```
 
 ## Contributing
