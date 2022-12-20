@@ -16,6 +16,7 @@ RUN set -eux; \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
+        linux-headers \
         postgresql-dev \
         $PHPIZE_DEPS \
     ; \

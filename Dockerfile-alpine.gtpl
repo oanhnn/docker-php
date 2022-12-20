@@ -11,9 +11,7 @@ RUN set -eux; \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
-{{ if env.version == "8.2" then ( -}}
         linux-headers \
-{{ ) else "" end -}}
         postgresql-dev \
         $PHPIZE_DEPS \
     ; \
