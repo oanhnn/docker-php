@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.2.5-fpm-alpine
+FROM php:8.2.6-fpm-alpine
 
 RUN set -eux; \
     \
