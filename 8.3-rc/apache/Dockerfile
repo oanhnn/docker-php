@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.3.0beta3-apache
+FROM php:8.3.0RC1-apache
 
 RUN set -eux; \
     \
