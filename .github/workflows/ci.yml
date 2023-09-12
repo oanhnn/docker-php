@@ -20,7 +20,7 @@ jobs:
     outputs:
       matrix: ${{ steps.generate-jobs.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - id: generate-jobs
         name: Generate Jobs
         run: |
@@ -40,7 +40,7 @@ jobs:
       DOCKER_IMAGE: ghcr.io/oanhnn/php
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Docker meta
         id: meta
