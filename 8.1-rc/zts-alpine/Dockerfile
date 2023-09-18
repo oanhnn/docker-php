@@ -3,20 +3,21 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.3.0RC2-zts
+FROM php:8.1.24RC1-zts-alpine
 
 RUN set -eux; \
     \
-    savedAptMark="$(apt-mark showmanual)"; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends \
-        libfreetype6-dev \
-        libgmp-dev \
-        libicu-dev \
-        libjpeg62-turbo-dev \
+    apk add --update --no-cache --virtual .build-deps \
+        freetype-dev \
+        gmp-dev \
+        icu-dev \
+        libintl \
+        libjpeg-turbo-dev \
         libpng-dev \
-        libpq-dev \
+        libxml2-dev \
         libzip-dev \
+        linux-headers \
+        postgresql-dev \
         $PHPIZE_DEPS \
     ; \
     docker-php-ext-configure gd \
@@ -43,16 +44,14 @@ RUN set -eux; \
     ; \
     docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
-    apt-mark auto '.*' > /dev/null; \
-    apt-mark manual $savedAptMark; \
-    find /usr/local -type f -executable -exec ldd '{}' ';' \
-        | awk '/=>/ { print $(NF-1) }' \
-        | sort -u \
-        | xargs -r dpkg-query --search \
-        | cut -d: -f1 \
-        | sort -u \
-        | xargs -r apt-mark manual \
-    ; \
-    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+    \
+    runDeps="$( \
+        scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
+            | tr ',' '\n' \
+            | sort -u \
+            | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
+    )"; \
+    apk add --update --no-cache --virtual .run-deps $runDeps; \
+    apk del .build-deps; \
     \
     php --version
