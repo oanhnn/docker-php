@@ -10,9 +10,10 @@
 | 7.2     | :x:                |
 | 7.3     | :x:                |
 | 7.4     | :x:                |
-| 8.0     | :white_check_mark: |
+| 8.0     | :x:                |
 | 8.1     | :white_check_mark: |
 | 8.2     | :white_check_mark: |
+| 8.3     | :white_check_mark: |
 
 https://www.php.net/supported-versions.php
 https://www.php.net/eol.php
