@@ -44,9 +44,9 @@ RUN set -eux; \
     docker-php-ext-enable redis; \
     rm -rf /tmp/pear ~/.pearrc; \
     apt-mark auto '.*' > /dev/null; \
-    apt-mark manual $savedAptMark; \
+    [ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
     find /usr/local -type f -executable -exec ldd '{}' ';' \
-        | awk '/=>/ { print $(NF-1) }' \
+        | awk '/=>/ { so = $(NF-1); if (index(so, "/usr/local/") == 1) { next }; gsub("^/(usr/)?", "", so); print so }' \
         | sort -u \
         | xargs -r dpkg-query --search \
         | cut -d: -f1 \
@@ -54,5 +54,6 @@ RUN set -eux; \
         | xargs -r apt-mark manual \
     ; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+    rm -rf /var/lib/apt/lists/*; \
     \
     php --version

@@ -11,7 +11,7 @@
 - [x] Publish to [Docker Hub](https://hub.docker.com/r/oanhnn/php) and [GHCR.IO](https://github.com/oanhnn/docker-php/pkgs/container/php)
 
 ```shell
-$ docker run --rm oanhnn/php:8.1-cli -m
+$ docker run --rm oanhnn/php:8.3-cli -m
 [PHP Modules]
 bcmath
 Core
@@ -159,6 +159,16 @@ Zend OPcache
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.2/fpm-alpine/Dockerfile" title="8.2-fpm-alpine">8.2-fpm-alpine</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.2/zts-alpine/Dockerfile" title="8.2-zts-alpine">8.2-zts-alpine</a></td>
     </tr>
+    <tr>
+        <th>8.3</th>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/apache/Dockerfile" title="8.3-apache">8.3-apache</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/cli/Dockerfile" title="8.3-cli">8.3-cli</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/fpm/Dockerfile" title="8.3-fpm">8.3-fpm</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/zts/Dockerfile" title="8.3-zts">8.3-zts</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/cli-alpine/Dockerfile" title="8.3-cli-alpine">8.3-cli-alpine</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/fpm-alpine/Dockerfile" title="8.3-fpm-alpine">8.3-fpm-alpine</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/zts-alpine/Dockerfile" title="8.3-zts-alpine">8.3-zts-alpine</a></td>
+    </tr>
 </table>
 
 
@@ -167,7 +177,7 @@ Zend OPcache
 - Use like with official image
 
 ```
-docker run -d --rm -p 9000:9000 -v $(pwd):/var/www oanhnn/php:8.2-fpm
+docker run -d --rm -p 9000:9000 -v $(pwd):/var/www oanhnn/php:8.3-fpm
 ```
 
 ## Contributing
