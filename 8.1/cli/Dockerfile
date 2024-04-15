@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.1.27-cli
+FROM php:8.1.28-cli
 
 RUN set -eux; \
     \
