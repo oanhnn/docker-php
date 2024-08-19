@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM php:8.4.0beta3-zts-alpine
+FROM php:8.3.11RC1-cli-alpine
 
 RUN set -eux; \
     \
