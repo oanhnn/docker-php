@@ -57,11 +57,11 @@ for version; do
         alpineVer="${suite#alpine}" # "3.12", etc
         if [ "$suite" != "$alpineVer" ]; then
             distro='alpine'
-            from="$latest-$variant-alpine"
+            from="php:$latest-$variant-alpine"
             target_dir="$version/$variant-alpine"
         else
             distro='debian'
-            from="$latest-$variant"
+            from="php:$latest-$variant"
             target_dir="$version/$variant"
         fi
         export from distro alpineVer

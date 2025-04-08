@@ -169,6 +169,16 @@ Zend OPcache
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/fpm-alpine/Dockerfile" title="8.3-fpm-alpine">8.3-fpm-alpine</a></td>
         <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.3/zts-alpine/Dockerfile" title="8.3-zts-alpine">8.3-zts-alpine</a></td>
     </tr>
+    <tr>
+        <th>8.4</th>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/apache/Dockerfile" title="8.4-apache">8.4-apache</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/cli/Dockerfile" title="8.4-cli">8.4-cli</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/fpm/Dockerfile" title="8.4-fpm">8.4-fpm</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/zts/Dockerfile" title="8.4-zts">8.4-zts</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/cli-alpine/Dockerfile" title="8.4-cli-alpine">8.4-cli-alpine</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/fpm-alpine/Dockerfile" title="8.4-fpm-alpine">8.4-fpm-alpine</a></td>
+        <td><a href="https://github.com/oanhnn/docker-php/blob/master/8.4/zts-alpine/Dockerfile" title="8.4-zts-alpine">8.4-zts-alpine</a></td>
+    </tr>
 </table>
 
 

@@ -8,7 +8,7 @@ on:
 jobs:
   generate-jobs:
     name: Generate Jobs
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.generate-jobs.outputs.matrix }}
     steps:
@@ -23,7 +23,7 @@ jobs:
   release:
     name: Release image
     needs: generate-jobs
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     continue-on-error: ${{ matrix.experimental == 'true' }}
     strategy:
       fail-fast: false

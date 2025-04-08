@@ -1,4 +1,4 @@
-FROM php:{{ env.from }}
+FROM {{ env.from }}
 
 RUN set -eux; \
     \
